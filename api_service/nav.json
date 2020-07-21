@@ -1,0 +1,32 @@
+[
+    {
+        "label": "Known Faces",
+        "href": "#/kf.find",
+        "roles": "SU,ST",
+        "menu": "Manage Users"
+    },
+    {
+        "label": "Add Face",
+        "href": "#/kf.detail",
+        "roles": "SU,ST",
+        "menu": "Manage Users"
+    },
+    {
+        "label": "Bulk Upload Users",
+        "href": "#/add.users",
+        "roles": "SU,ST",
+        "menu": "Manage Users"
+    },
+    {
+        "label": "View Attendance",
+        "href": "#/att.detail",
+        "roles": "*",
+        "menu": "Attendance"
+    },
+    {
+        "label": "Mark Attendance",
+        "href": "#/att.mark",
+        "roles": "ST,SU",
+        "menu": "Attendance"
+    }
+]

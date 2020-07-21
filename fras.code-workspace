@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "client_app"
+		},
+		{
+			"path": "api_service"
+		},
+		{
+			"path": "test_data"
+		}
+	],
+	"settings": {}
+}
