@@ -183,7 +183,8 @@ export default {
     },
     reset() {
       this.results = { faces: [], has_next: false };
-      this.kface = { pg_no: 1 };
+      this.kface = { user: {}, pg_no: 1 };
+      sessionStorage.mykey = undefined;
     }
   }
 };

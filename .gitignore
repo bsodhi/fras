@@ -3,7 +3,7 @@
 *node_modules
 *uploads
 *dist
-*app/
+**/app
 
 # local env files
 .env.local
