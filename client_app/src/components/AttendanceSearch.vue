@@ -47,7 +47,7 @@
           <div class="col">Type</div>
         </div>
         <p v-if="results.length == 0">Nothing to show yet!</p>
-        <div class="row" v-for="(r, i) in results" :key="r.id">
+        <div class="row row-striped" v-for="(r, i) in results" :key="r.id">
           <div class="col-md-1">{{i+1}}</div>
           <div class="col"><a :href="'#/cour.detail/'+r.id">{{r.code}}</a></div>
           <div class="col">{{r.title}}</div>

@@ -363,17 +363,37 @@ def kface_save():
             # TODO: Check ownership
             merge_form_to_model(kf, fd)
             kf.face_enc = np_to_json(face_enc)
-            rc = update_entity(KnownFace, kf, exclude=[KnownFace.user])
-            if rc != 1:
-                return error_json("Could not update. Please try again.")
+            with db.transaction() as txn:
+                try:
+                    rc = update_entity(KnownFace, kf, exclude=[KnownFace.user])
+                    usr = kf.user
+                    merge_form_to_model(usr, fd["user"])
+                    rc += update_entity(User, usr, exclude=[User.role, User.password_hashed])
+                    if rc != 2:
+                        raise IntegrityError("Could not update. Please try again.")
+                    txn.commit()
+                except DatabaseError as dbe:
+                    txn.rollback()
+                    raise dbe
             logging.debug("Updated known face: {}".format(kf))
-        else:
-            merge_form_to_model(kf, fd)
-            u = User.select().where(User.login_id == kf.user.login_id)[0]
-            kf.user = u
-            kf.face_enc = np_to_json(face_enc)
 
-            save_entity(kf)
+        else:
+            with db.transaction() as txn:
+                try:
+                    u = User()
+                    merge_form_to_model(u, fd["user"])
+                    u.password_hashed = pbkdf2_sha256.hash(random_str(10))
+                    save_entity(u)
+
+                    merge_form_to_model(kf, fd)
+                    kf.user = u
+                    kf.face_enc = np_to_json(face_enc)
+                    save_entity(kf)
+
+                    txn.commit()
+                except DatabaseError as dbe:
+                    txn.rollback()
+                    raise dbe
             logging.info("Inserted: {}".format(kf))
 
         return ok_json(model_to_dict(kf))
@@ -426,7 +446,7 @@ def all_attendance():
     try:
         att = Attendance.select()
         return ok_json([{"first_name": a.user.first_name,
-                         "last_name": a.user.first_name,
+                         "last_name": a.user.last_name,
                          "marked_on": a.ins_ts} for a in att])
     except Exception as ex:
         msg = "Error when fetching attendance."

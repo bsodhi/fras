@@ -15,7 +15,7 @@
         </div>
         <div class="card-body">
           <p v-if="attend.length == 0">Nothing to show yet!</p>
-          <div class="row" v-for="(s, i) in attend" :key="s.id">
+          <div class="row row-striped" v-for="(s, i) in attend" :key="s.id">
             <div class="col-md-1">{{i+1}}</div>
             <div class="col">{{s.first_name}}</div>
             <div class="col">{{s.last_name}}</div>

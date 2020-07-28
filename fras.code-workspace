@@ -10,5 +10,7 @@
 			"path": "test_data"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"python.pythonPath": "/Users/someuser/.pyenv/ML/bin/python"
+	}
 }

@@ -1,9 +1,9 @@
 *DS_Store
 *.db
-node_modules
+*node_modules
 *uploads
-/webapp/dist
-/webapp/api_service/app
+*dist
+*app/
 
 # local env files
 .env.local

@@ -8,7 +8,7 @@ holds the main nav bar and views container.
   <div id="appMain" class="container">
     <Navbar v-bind:navItems="navData" v-bind:user="currentUser" v-on:logout-user="onLogout"/>
     <br/>
-    <div class="position-fixed center-h">
+    <div class="position-fixed center-h" style="z-index:99">
       <div v-if="statusMsg != ''" class="alert alert-dismissible alert-warning" role="alert">
         {{statusMsg}}
         <button type="button" class="close" data-dismiss="alert" aria-label="Close" @click="setStatusMessage('')">
@@ -26,7 +26,7 @@ import Navbar from "./components/Navbar.vue";
 export default {
   name: "App",
   components: {
-    Navbar
+    "Navbar": Navbar
   },
   data: function() {
     return {navData:{menus:{}, links:[]}};

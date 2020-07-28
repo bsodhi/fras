@@ -77,7 +77,7 @@
           </div>
         </div>
         <p v-if="results.faces.length == 0">Nothing to show yet!</p>
-        <div class="row mt-4" v-for="(r, i) in results.faces" :key="r.id">
+        <div class="row mt-4 row-striped" v-for="(r, i) in results.faces" :key="r.id">
           <div class="col-md-1">{{(results.pg_no - 1) * results.pg_size + i + 1}}</div>
           <div class="col">
             <a :href="'#/kf.detail/'+r.id">{{r.user.first_name + " " + r.user.last_name}}</a>
@@ -124,6 +124,13 @@ export default {
     // Alias 'this' for accessing in promises
     // var vm = this;
   },
+  mounted: function() {
+    if (sessionStorage.mykey) {
+      this.results = JSON.parse(sessionStorage.mykey);
+    } else {
+      this.results = { faces: [], has_next: false };
+    }
+  },
   methods: {
     deleteMarked() {
       let vm = this;
@@ -164,6 +171,7 @@ export default {
         .then(function(res) {
           if (res.data.status == "OK") {
             vm.results = res.data.body;
+            sessionStorage.mykey = JSON.stringify(vm.results);
           } else {
             vm.setStatusMessage(res.data.body);
           }
