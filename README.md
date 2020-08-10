@@ -23,7 +23,7 @@ E.g., you can run the following: `python3 -m venv ~/.pyenv/FRAS` to create the v
 3. Open a shell and `cd` into a directory that you want to work in.
 4. Clone this git repository: `git clone https://github.com/bsodhi/fras.git`.
 5. Run `cd fras` and then `source ~/.pyenv/FRAS/bin/activate` to activate the python virtual environment.
-6. ONLY if you are using MySQL: `sudo apt-get install libmysqlclient-dev` to install MySQL client development library. It will be needed when we install the python connector via pip in following steps.
+6. ONLY if you are using MySQL: On Ubuntu, you will do `sudo apt-get install libmysqlclient-dev` to install MySQL client development library. It will be needed when we install the python connector via pip in following steps.
 7. Run `pip install -r api_service/requirements.txt`.
 
     > **NOTE:** Some modules may fail to install due to unavailability of certain native libraries or headers on your OS. You can Google the error text to find a solution.
@@ -46,6 +46,6 @@ You may also have to set proper values for the database connection information, 
     1. `from models import *`
     1. `setup_demo_db()`
     1. Ctrl-D to exit the python session.
-1. Run `python fras_app.py config.json` to start the web application.
+1. Run `python fras_app.py` to start the web application.
 1. Open `http://localhost:4567/fras/app/index.html`
 1. Login using ID `admin` and password `admin` (Or whatever you set via the `setup_demo_db()`)
