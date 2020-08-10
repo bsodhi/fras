@@ -1,0 +1,5 @@
+flask
+passlib
+opencv-python
+peewee
+face_recognition
