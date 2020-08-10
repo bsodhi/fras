@@ -1,7 +1,14 @@
+# -*- coding: utf-8 -*-
+"""
+Main entry point for the web application.
+
+:Authors: Balwinder Sodhi
+"""
+
 from flask import Flask, current_app, g
 #from flask_talisman import Talisman
-import argparse
-import json
+# import argparse
+# import json
 import logging
 from pathlib import Path
 import os
@@ -52,23 +59,6 @@ def init():
 CONFIG = None
 
 if __name__ == "__main__":
-    # parser = argparse.ArgumentParser()
-    # parser.add_argument("-d", "--debug", type=bool, nargs='?',
-    #                     const=True, default=False,
-    #                     dest="debug", help="Run the server in debug mode.")
-    # parser.add_argument("cfg_file_path", type=str,
-    #                     help="Scrapper runner config file path.")
-    # args = parser.parse_args()
-    # app.secret_key = C.random_str(size=30)
-
-    # with open(args.cfg_file_path, "r") as cfg_file:
-    #     CONFIG = json.load(cfg_file)
-
-    # logging.info("CONFIG: "+str(CONFIG))
-    # app.run(host=CONFIG["host"],
-    #         port=CONFIG["port"],
-    #         threaded=True,
-    #         ssl_context=(CONFIG["ssl_cert_file"], CONFIG["ssl_key_file"]),
-    #         debug=args.debug)
     init()
-    app.run(host="0.0.0.0", port=4567, debug=True)
+    #TODO: Read settings from CLI
+    app.run(host="0.0.0.0", port=4567)

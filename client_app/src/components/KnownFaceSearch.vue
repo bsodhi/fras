@@ -1,3 +1,8 @@
+<!--
+View for searching known faces.
+
+@author Balwinder Sodhi
+-->
 <template>
   <div class="container">
     <div class="row">

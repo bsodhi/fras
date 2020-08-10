@@ -1,3 +1,9 @@
+<!--
+Login view.
+
+@author Balwinder Sodhi
+-->
+
 <template>
   <div class="container">
     <div class="row">

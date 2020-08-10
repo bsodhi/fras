@@ -1,3 +1,9 @@
+<!--
+View for uploading a group photo to demonstrate attendance
+marking in case of a group of people.
+
+@author Balwinder Sodhi
+-->
 <template>
   <div class="container">
     <p class="h6">Upload Group Photo</p>

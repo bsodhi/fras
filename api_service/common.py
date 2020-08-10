@@ -1,15 +1,20 @@
+# -*- coding: utf-8 -*-
+"""
+Common functions that are used by other modules.
+
+:Authors: Balwinder Sodhi
+"""
+
 import logging
-from flask import (Flask, abort, jsonify, redirect, render_template, request,
-                   session, url_for, flash)
+from flask import (Flask, redirect, session, url_for, flash)
 from datetime import datetime as DT
-from functools import wraps, partial
+from functools import wraps
 import random
 import string
 from playhouse.shortcuts import *
 from models import db
 
 TS_FORMAT = "%Y%m%d_%H%M%S"
-
 
 def inject_user():
     if "user" in session:

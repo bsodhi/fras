@@ -1,10 +1,17 @@
+# -*- coding: utf-8 -*-
+"""
+Models for keeping data in a RDBMS.
+
+:Authors: Balwinder Sodhi
+"""
+
 from peewee import *
 from datetime import datetime as DT
 import logging
 from passlib.handlers.pbkdf2 import pbkdf2_sha256
 
 # TODO: Use MariaDB or Postgres
-db = SqliteDatabase('attman.db')
+db = SqliteDatabase('fras_data.db')
 
 def create_schema():
     logging.info("Creating DB schema")

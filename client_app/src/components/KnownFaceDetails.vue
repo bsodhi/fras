@@ -1,3 +1,8 @@
+<!--
+View for holding details of known faces.
+
+@author Balwinder Sodhi
+-->
 <template>
   <div class="container">
     <p class="h6">KnownFace Details</p>

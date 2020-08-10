@@ -1,3 +1,8 @@
+<!--
+View for holding attendance details.
+
+@author Balwinder Sodhi
+-->
 <template>
   <div class="container">
     <p

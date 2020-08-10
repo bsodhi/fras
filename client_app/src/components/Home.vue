@@ -1,3 +1,9 @@
+<!--
+Home screen.
+
+@author Balwinder Sodhi
+-->
+
 <template>
   <div class="container">
     <p class="lead">

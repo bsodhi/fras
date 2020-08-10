@@ -1,3 +1,9 @@
+<!--
+View for bulk uploading known faces.
+
+@author Balwinder Sodhi
+-->
+
 <template>
   <div class="container">
     <p class="h6">Upload KnownFaces</p>

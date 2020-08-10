@@ -1,3 +1,8 @@
+<!--
+View for searching attendance details.
+
+@author Balwinder Sodhi
+-->
 <template>
   <div class="container">
     <p class="h6">Find Courses</p>

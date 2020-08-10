@@ -1,3 +1,8 @@
+/**
+Main initialization script for the client app.
+
+@author Balwinder Sodhi
+*/
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import App from './App.vue'
