@@ -104,7 +104,7 @@ def is_person_in_photo(person_photo_path, group_photo_path, tolerance=0.45):
     return True in matches
 
 
-def find_persons_in_photo(group_photo_path, known_faces_data, tolerance=0.45):
+def find_persons_in_photo(group_photo_path, known_faces_data, tolerance=0.48):
     """Finds all those faces from a set of known faces which
     are present in a given group photo.
 

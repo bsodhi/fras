@@ -212,13 +212,12 @@ def kface_find():
     try:
         fd = request.get_json(force=True)
         pg_no = int(fd.get('pg_no', 1))
-        query = KnownFace.select().join(User).where(
-            ((fd.get("first_name") is None) |
-             (User.first_name.contains(fd.get("first_name"))))
-            &
-            ((fd.get("login_id") is None) |
-             (User.login_id.contains(fd.get("login_id"))))
-        )
+        query = KnownFace.select().join(User)
+        if fd.get("first_name"):
+            query = query.where(User.first_name.contains(fd.get("first_name")))
+        if fd.get("login_id"):
+            query = query.where(User.login_id.contains(fd.get("login_id")))
+
         faces = query.order_by(KnownFace.id).paginate(pg_no, PAGE_SIZE)
         serialized = [model_to_dict(
             r, exclude=[KnownFace.user.password_hashed]) for r in faces]
